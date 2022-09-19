@@ -3,6 +3,7 @@ import sys
 sys.path.insert(0, 'evoman')
 from environment import Environment
 from demo_controller import player_controller
+import neat
 
 #import other libs
 import time
@@ -29,6 +30,20 @@ env = Environment(experiment_name=experiment_name,
                   level=2,
                   speed="fastest")
 
-#defining the pop_size
-pop_size = 100
+#setup the NEAT
+def run(config_path):
+    global pop
+    config = neat.config.Config(
+        neat.DefaultGenome,
+        neat.DefaultReproduction,
+        neat.DefaultSpeciesSet,
+        neat.DefaultStagnation,
+        config_path
+    )
+
+    pop = neat.Population(config)
+    pop.run(eval_genomes, 50)
+
+
+
 
