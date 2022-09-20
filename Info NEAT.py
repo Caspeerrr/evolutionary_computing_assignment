@@ -18,4 +18,6 @@ Weights depend how strong the connection is (these are changed by the EA)
 Mutations:
 - weight mutations (easily to occur more often)
 - structural mutations
+
+Push test
 """
